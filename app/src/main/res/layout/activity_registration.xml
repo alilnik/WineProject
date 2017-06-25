@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gdl_reg_hor"
+        app:layout_constraintGuide_percent="0.2"
+        android:orientation="horizontal" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gdl_reg_ver_1"
+        app:layout_constraintGuide_percent="0.2"
+        android:orientation="vertical" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gdl_reg_ver_2"
+        app:layout_constraintGuide_percent="0.8"
+        android:orientation="vertical" />
+
+
+    <EditText
+        android:id="@+id/edt_reg_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/gdl_reg_hor"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_reg_ver_1"
+        app:layout_constraintRight_toRightOf="@id/gdl_reg_ver_2"
+        android:hint="Login"
+        />
+    <EditText
+        android:id="@+id/edt_reg_pwd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@id/gdl_reg_ver_2"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_reg_ver_1"
+        app:layout_constraintTop_toBottomOf="@id/edt_reg_login"
+        android:inputType="textPassword"
+        android:hint="Password"
+        />
+    <EditText
+        android:id="@+id/edt_reg_pwd_rep"
+        android:hint="Repeat password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        app:layout_constraintRight_toRightOf="@id/gdl_reg_ver_2"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_reg_ver_1"
+        app:layout_constraintTop_toBottomOf="@id/edt_reg_pwd" />
+    <Button
+        android:id="@+id/btn_reg_reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        app:layout_constraintTop_toBottomOf="@id/edt_reg_pwd_rep"
+        app:layout_constraintRight_toLeftOf="@+id/btn_reg_cancel"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_reg_ver_1"
+        android:onClick="register_register"
+        />
+    <Button
+        android:text="Cancel"
+        android:id="@+id/btn_reg_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edt_reg_pwd_rep"
+        app:layout_constraintRight_toRightOf="@id/gdl_reg_ver_2"
+        app:layout_constraintLeft_toRightOf="@id/btn_reg_reg"
+        android:onClick="register_cancel"
+
+         />
+
+
+</android.support.constraint.ConstraintLayout>
