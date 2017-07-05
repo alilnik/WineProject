@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">WineProject</string>
+    <string-array name="ROLES">
+        <item>User</item>
+        <item>Manager</item>
+        <item>Logistics</item>
+        <item>Worker</item>
+    </string-array>
 </resources>

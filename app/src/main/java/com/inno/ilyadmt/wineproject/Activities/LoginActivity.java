@@ -8,20 +8,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.inno.ilyadmt.wineproject.R;
-import com.inno.ilyadmt.wineproject.Storage;
+import com.inno.ilyadmt.wineproject.Utility.ROLES;
+import com.inno.ilyadmt.wineproject.Utility.UserManager;
 
 public class LoginActivity extends AppCompatActivity {
 
 
     private String login;
     private String pwd;
-    private Storage storage;
+    private UserManager storage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        storage = Storage.getInstance();
+        storage = UserManager.getInstance();
     }
 
     public void register(View view) {
@@ -31,18 +32,31 @@ public class LoginActivity extends AppCompatActivity {
     public void login(View view) {
         login = ((EditText)findViewById(R.id.edt_login_login)).getText().toString();
         pwd = ((EditText)findViewById(R.id.edt_login_pwd)).getText().toString();
+        ROLES role;
 
-        if(checkPassword(login, pwd)) startActivity(new Intent(this, HomeScreenActivity.class));
+        if((role = checkPassword(login, pwd))!=null){
+            if(role.equals(ROLES.USER)){
+                Intent intent = new Intent(this, HomeScreenActivity.class);
+                intent.putExtra("name", "John");
+                intent.putExtra("surname", "Doe");
+                intent.putExtra("secname", "Doe");
+
+                startActivity(intent);
+            }
+            else startActivity(new Intent(this, AdminActivity.class));
+
+        }
         else Toast.makeText(this, "Login or password is incorrect.\nCheck them, please.", Toast.LENGTH_LONG).show();
     }
 
-    private boolean checkPassword(String user, String password){
-        String localPassword = storage.internalStorage.get(user);
+    private ROLES checkPassword(String user, String password){
+        String localPassword = storage.internalStorage.get(user).first;
+        ROLES role = storage.internalStorage.get(user).second;
         if(localPassword != null){
-            if(localPassword.equals(password)) return true;
-            return false;
+            if(localPassword.equals(password)) return role;
+            return null;
         }
-        return false;
+        return null;
 
     }
 }
