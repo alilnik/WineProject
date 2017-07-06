@@ -11,14 +11,14 @@ import java.util.List;
  */
 
 public class UserManager {
-    public HashMap<User, Pair<String, ROLES>> internalStorage = new HashMap<>();
+    public HashMap<String, Pair<String, User>> internalStorage = new HashMap<>();
 
-    public List<User> getUsersList(){
-        return new ArrayList<>(internalStorage.keySet());
+    public List<Pair<String, User>> getUsersList(){
+        return new ArrayList<>(internalStorage.values());
     }
 
     private static final UserManager ourInstance = new UserManager(){{
-        internalStorage.put(new User("admin", "admin", "admin", ROLES.ADMIN), new Pair<String, ROLES>("1", ROLES.ADMIN));
+        internalStorage.put("admin", new Pair<String, User>("1", new User("admin", "admin", "admin", ROLES.ADMIN)));
     }};
 
     public static UserManager getInstance() {

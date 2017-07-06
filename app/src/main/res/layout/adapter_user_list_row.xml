@@ -11,6 +11,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:textSize="22dp"
+        android:textColor="@color/primary_text"
         />
     <TextView
         android:id="@+id/adp_userlist_tv_name"
@@ -18,7 +20,9 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/adp_userlist_tv_username"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="12dp"
+        android:textColor="@color/secondary_text"/>
     <TextView
         android:id="@+id/adp_userlist_tv_role"
         android:layout_width="0dp"
@@ -26,6 +30,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/adp_userlist_tv_name"
+        android:textSize="12dp"
+        android:textColor="@color/secondary_text"
         />
 
 

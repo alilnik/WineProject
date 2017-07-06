@@ -3,12 +3,14 @@ package com.inno.ilyadmt.wineproject.Activities;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.inno.ilyadmt.wineproject.R;
 import com.inno.ilyadmt.wineproject.Utility.ROLES;
+import com.inno.ilyadmt.wineproject.Utility.User;
 import com.inno.ilyadmt.wineproject.Utility.UserManager;
 
 public class LoginActivity extends AppCompatActivity {
@@ -51,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private ROLES checkPassword(String user, String password){
         String localPassword = storage.internalStorage.get(user).first;
-        ROLES role = storage.internalStorage.get(user).second;
+        ROLES role = storage.internalStorage.get(user).second.getRole();
         if(localPassword != null){
             if(localPassword.equals(password)) return role;
             return null;

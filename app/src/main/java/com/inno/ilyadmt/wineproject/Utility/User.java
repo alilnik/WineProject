@@ -6,6 +6,7 @@ package com.inno.ilyadmt.wineproject.Utility;
 
 public class User {
     private String name, surname;
+    private long id;
     private String username;
     private ROLES role;
 

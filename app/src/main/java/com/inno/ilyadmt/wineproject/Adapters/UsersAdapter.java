@@ -3,6 +3,7 @@ package com.inno.ilyadmt.wineproject.Adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,9 +22,9 @@ import java.util.List;
 public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder> {
 
     Context context;
-    List<User> users;
+    List<Pair<String, User>> users;
 
-    public UsersAdapter(Context context, List<User> users) {
+    public UsersAdapter(Context context, List<Pair<String, User>> users) {
         this.context = context;
         this.users = users;
     }
@@ -31,10 +32,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
     public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
         TextView name, username, role;
-        List<User> users;
+        List<Pair<String, User>> users;
         Context context;
 
-        public MyViewHolder(View itemView, List<User> users, Context context) {
+        public MyViewHolder(View itemView, List<Pair<String, User>> users, Context context) {
             super(itemView);
             this.users = users;
             this.context = context;
@@ -47,7 +48,7 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
         @Override
         public void onClick(View view) {
             int position = getAdapterPosition();
-            User user= this.users.get(position);
+            User user= this.users.get(position).second;
             Intent intent = new Intent(context, HomeScreenActivity.class);
             this.context.startActivity(intent);
         }
@@ -61,10 +62,10 @@ public class UsersAdapter extends RecyclerView.Adapter<UsersAdapter.MyViewHolder
 
     @Override
     public void onBindViewHolder(UsersAdapter.MyViewHolder holder, int position) {
-        User user = users.get(position);
+        User user = users.get(position).second;
 
-        holder.name.setText(user.getName() + " " +user.getSurname());
-        holder.username.setText(user.getUsername());
+        holder.username.setText(user.getUsername() );
+        holder.name.setText(user.getName() + " " +user.getSurname() + " " + user.getRole().toString());
         holder.role.setText(user.getRole().toString());
 
     }

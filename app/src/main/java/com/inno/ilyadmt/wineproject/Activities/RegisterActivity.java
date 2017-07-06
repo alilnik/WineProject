@@ -56,7 +56,7 @@ public class RegisterActivity extends Activity {
             return;
         }
         else{
-            storage.internalStorage.put(new User(name, surname, login, role), new Pair<String, ROLES>(pwd, role));
+            storage.internalStorage.put(login, new Pair<String, User>(pwd, new User(name, surname, login, role)));
             Toast.makeText(this, "You have registered successfully!\nPlease, log in now.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, LoginActivity.class));
         }

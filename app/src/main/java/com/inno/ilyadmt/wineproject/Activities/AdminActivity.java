@@ -3,9 +3,12 @@ package com.inno.ilyadmt.wineproject.Activities;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Pair;
 
 import com.inno.ilyadmt.wineproject.Adapters.UsersAdapter;
 import com.inno.ilyadmt.wineproject.R;
@@ -20,7 +23,7 @@ import java.util.List;
 
 public class AdminActivity extends Activity {
 
-    List<User> userList = UserManager.getInstance().getUsersList();
+    List<Pair<String, User>> userList = UserManager.getInstance().getUsersList();
     private UsersAdapter usersAdapter;
     private RecyclerView recyclerView;
 
