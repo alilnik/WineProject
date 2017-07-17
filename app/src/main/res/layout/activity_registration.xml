@@ -103,6 +103,8 @@
         app:layout_constraintLeft_toLeftOf="@id/gdl_reg_ver_1"
         android:onClick="register_register"
         android:layout_margin="5dp"
+        android:background="@drawable/custom_btn"
+        android:minHeight="0dp"
         />
     <Button
         android:text="Cancel"
@@ -114,6 +116,8 @@
         app:layout_constraintLeft_toRightOf="@id/btn_reg_reg"
         android:onClick="register_cancel"
         android:layout_margin="5dp"
+        android:background="@drawable/custom_btn"
+        android:minHeight="0dp"
          />
 
 

@@ -12,22 +12,20 @@ import android.widget.Toast;
 
 import com.inno.ilyadmt.wineproject.R;
 import com.inno.ilyadmt.wineproject.Utility.ROLES;
-import com.inno.ilyadmt.wineproject.Utility.User;
-import com.inno.ilyadmt.wineproject.Utility.UserManager;
-
-import static com.inno.ilyadmt.wineproject.Utility.ROLES.USER;
+import com.inno.ilyadmt.wineproject.Models.User;
+import com.inno.ilyadmt.wineproject.Models.UserManager;
 
 /**
  * Created by mjazz on 25.06.2017.
  */
 public class RegisterActivity extends Activity {
 
-    UserManager storage;
+    UserManager userManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        storage = UserManager.getInstance();
+        userManager = UserManager.getInstance(this);
     }
 
     public void register_cancel(View view) {
@@ -35,7 +33,7 @@ public class RegisterActivity extends Activity {
     }
 
     public void register_register(View view) {
-        String login = ((EditText) findViewById(R.id.edt_reg_login)).getText().toString();
+        String username = ((EditText) findViewById(R.id.edt_reg_login)).getText().toString();
         String pwd = ((EditText) findViewById(R.id.edt_reg_pwd)).getText().toString();
         String pwd_rep = ((EditText) findViewById(R.id.edt_reg_pwd_rep)).getText().toString();
         String name  = ((EditText)findViewById(R.id.edt_reg_name)).getText().toString();
@@ -43,20 +41,20 @@ public class RegisterActivity extends Activity {
 
         ROLES role = ROLES.valueOf(((Spinner)findViewById(R.id.spinner_reg_role)).getSelectedItem().toString().toUpperCase());
 
-        if(pwd.length()<8){
-            Toast.makeText(this, "Password should be more than 8 characters long.\nCheck it, please.", Toast.LENGTH_LONG).show();
+        if(pwd.length()<4){
+            Toast.makeText(this, "Password should be more than 4 characters long.\nCheck it, please.", Toast.LENGTH_LONG).show();
             return;
         }
         else if(!pwd.equals(pwd_rep)){
             Toast.makeText(this, "Passwords do not match.\nCheck, please.", Toast.LENGTH_LONG).show();
             return;
         }
-        else if(storage.internalStorage.containsKey(login)){
-            Toast.makeText(this, "This login is occupied already.\nConsider other, please.", Toast.LENGTH_LONG).show();
+        else if(userManager.containsUser(username)){
+            Toast.makeText(this, "This username is occupied already.\nConsider other, please.", Toast.LENGTH_LONG).show();
             return;
         }
         else{
-            storage.internalStorage.put(login, new Pair<String, User>(pwd, new User(name, surname, login, role)));
+            userManager.addUser(username, name, surname, pwd, role);
             Toast.makeText(this, "You have registered successfully!\nPlease, log in now.", Toast.LENGTH_LONG).show();
             startActivity(new Intent(this, LoginActivity.class));
         }

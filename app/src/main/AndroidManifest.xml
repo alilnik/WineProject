@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.inno.ilyadmt.wineproject">
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +14,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode"/>
+
         <activity android:name=".Activities.LoginActivity"
+            android:launchMode="singleTask"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,9 +35,24 @@
 
         </activity>
         <activity android:name=".Activities.AdminActivity"
+            android:launchMode="singleTask"
             >
 
         </activity>
+
+        <activity android:name=".Activities.BarcodeCaptureActivity">
+
+        </activity>
+        <activity android:name=".Activities.AdminAddUserActivity">
+
+        </activity>
+
+        <provider
+            android:name= ".DatabaseManager.UsersProvider"
+            android:authorities= "com.inno.ilyadmt.wineproject.provider"
+            android:exported="false"
+            />
+
 
     </application>
 

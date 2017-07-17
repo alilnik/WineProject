@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gdl_add_hor"
+        app:layout_constraintGuide_percent="0.05"
+        android:orientation="horizontal" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gdl_add_ver_1"
+        app:layout_constraintGuide_percent="0.05"
+        android:orientation="vertical" />
+
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/gdl_add_ver_2"
+        app:layout_constraintGuide_percent="0.95"
+        android:orientation="vertical" />
+
+
+    <EditText
+        android:id="@+id/edt_add_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/gdl_add_hor"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_add_ver_1"
+        app:layout_constraintRight_toRightOf="@id/gdl_add_ver_2"
+        android:hint="Login"
+        android:layout_margin="5dp"
+        />
+    <EditText
+        android:id="@+id/edt_add_pwd"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@id/gdl_add_ver_2"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_add_ver_1"
+        app:layout_constraintTop_toBottomOf="@id/edt_add_login"
+        android:inputType="textPassword"
+        android:hint="Password"
+        android:layout_margin="5dp"
+        />
+
+    <Spinner
+        android:id="@+id/spinner_add_role"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/ROLES"
+        app:layout_constraintTop_toBottomOf="@id/edt_add_pwd"
+        app:layout_constraintRight_toRightOf="@id/gdl_add_ver_2"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_add_ver_1"
+        android:layout_margin="5dp"
+
+        />
+
+    <EditText
+        android:id="@+id/edt_add_name"
+        android:hint="Name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        app:layout_constraintRight_toRightOf="@id/gdl_add_ver_2"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_add_ver_1"
+        app:layout_constraintTop_toBottomOf="@id/spinner_add_role"
+        android:layout_margin="5dp"/>
+    <EditText
+        android:id="@+id/edt_add_surname"
+        android:hint="Surname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        app:layout_constraintRight_toRightOf="@id/gdl_add_ver_2"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_add_ver_1"
+        app:layout_constraintTop_toBottomOf="@id/edt_add_name"
+        android:layout_margin="5dp"/>
+
+    <Button
+        android:id="@+id/btn_add_reg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Add"
+        app:layout_constraintTop_toBottomOf="@id/edt_add_surname"
+        app:layout_constraintRight_toLeftOf="@+id/btn_add_cancel"
+        app:layout_constraintLeft_toLeftOf="@id/gdl_add_ver_1"
+        android:onClick="add_add"
+        android:layout_margin="5dp"
+        android:background="@drawable/custom_btn"
+        android:minHeight="0dp"
+        />
+    <Button
+        android:text="Cancel"
+        android:id="@+id/btn_add_cancel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/edt_add_surname"
+        app:layout_constraintRight_toRightOf="@id/gdl_add_ver_2"
+        app:layout_constraintLeft_toRightOf="@id/btn_add_reg"
+        android:onClick="add_cancel"
+        android:layout_margin="5dp"
+        android:background="@drawable/custom_btn"
+        android:minHeight="0dp"
+        />
+</android.support.constraint.ConstraintLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorWine"
+    android:background="@color/colorWhite"
     tools:context="com.inno.ilyadmt.wineproject.Activities.LoginActivity">
 
     <android.support.constraint.Guideline
@@ -75,20 +75,27 @@
         android:layout_height="wrap_content"
         android:text="Login"
         app:layout_constraintLeft_toLeftOf="@+id/gdl_log_logo_1"
-        app:layout_constraintRight_toLeftOf="@+id/btn_login_register"
+        app:layout_constraintRight_toLeftOf="@id/gdl_log_logo_2"
         app:layout_constraintTop_toBottomOf="@+id/edt_login_pwd"
         android:onClick="login"
-
+        android:background="@drawable/custbtn"
+        android:layout_margin="7dp"
+        android:textSize="14dp"
+        android:minHeight="0dp"
         />
     <Button
         android:id="@+id/btn_login_register"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Register"
-        app:layout_constraintLeft_toRightOf="@+id/btn_login_login"
-        app:layout_constraintTop_toBottomOf="@+id/edt_login_pwd"
+        app:layout_constraintLeft_toRightOf="@id/gdl_log_logo_1"
+        app:layout_constraintTop_toBottomOf="@id/btn_login_login"
         android:onClick="register"
-        app:layout_constraintRight_toLeftOf="@+id/gdl_log_logo_2" />
+        app:layout_constraintRight_toLeftOf="@+id/gdl_log_logo_2"
+        android:background="@drawable/custbtn"
+        android:layout_margin="7dp"
+        android:textSize="14dp"
+        android:minHeight="0dp"/>
 
 
 

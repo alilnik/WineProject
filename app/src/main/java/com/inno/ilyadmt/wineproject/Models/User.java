@@ -1,4 +1,6 @@
-package com.inno.ilyadmt.wineproject.Utility;
+package com.inno.ilyadmt.wineproject.Models;
+
+import com.inno.ilyadmt.wineproject.Utility.ROLES;
 
 /**
  * Created by mjazz on 05.07.2017.
@@ -56,7 +58,7 @@ public class User {
 
     @Override
     public int hashCode() {
-        return (int) (21+username.hashCode()*42);
+        return 21+username.hashCode()*42;
     }
 
     @Override
